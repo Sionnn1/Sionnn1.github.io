@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dashboard QC - MOYA</title>
+  <title>QC Bahan Kimia (Koagulan)</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
@@ -15,23 +15,8 @@
     }
     h1 {
       text-align: center;
-      margin-bottom: 40px;
       color: #0d47a1;
-    }
-    .dashboard-container {
-      background: white;
-      border-radius: 20px;
-      padding: 20px;
-      margin-bottom: 40px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease;
-    }
-    .dashboard-container:hover {
-      transform: translateY(-5px);
-    }
-    h2 {
-      margin: 0 0 10px;
-      color: #1565c0;
+      margin-bottom: 20px;
     }
     iframe {
       width: 100%;
@@ -39,60 +24,57 @@
       border: none;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    .nav {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .nav a {
+      text-decoration: none;
+      color: #fff;
+      background: #1976d2;
+      padding: 10px 16px;
+      border-radius: 6px;
+      margin: 0 10px;
+      transition: background 0.3s;
+    }
+    .nav a:hover {
+      background: #0d47a1;
     }
     .refresh-btn {
+      display: block;
+      margin: 0 auto 20px;
+      padding: 10px 16px;
       background: #1976d2;
       color: white;
       border: none;
-      padding: 10px 16px;
-      font-size: 14px;
       border-radius: 6px;
       cursor: pointer;
-      margin-bottom: 10px;
-      transition: background 0.3s ease;
+      font-size: 14px;
     }
     .refresh-btn:hover {
       background: #0d47a1;
-    }
-    @media screen and (max-width: 768px) {
-      iframe {
-        height: 400px;
-      }
     }
   </style>
 </head>
 <body>
 
-  <h1>🌊 Dashboard QC Bahan Kimia & Material</h1>
+  <h1>🧪 QC Bahan Kimia (Koagulan)</h1>
+  <button class="refresh-btn" onclick="refreshDashboard()">🔄 Refresh</button>
+  <iframe id="dashboard" src="https://lookerstudio.google.com/embed/reporting/88ba43dc-3def-4add-9b12-b175e48de039/page/4F6GF?rm=minimal"></iframe>
 
-  <!-- Dashboard 1 -->
-  <div class="dashboard-container">
-    <h2>🧪 QC Bahan Kimia (Koagulan)</h2>
-    <button class="refresh-btn" onclick="refreshDashboard('dashboard1')">🔄 Refresh</button>
-    <iframe id="dashboard1" src="https://lookerstudio.google.com/embed/reporting/88ba43dc-3def-4add-9b12-b175e48de039/page/4F6GF?rm=minimal"></iframe>
-  </div>
-
-  <!-- Dashboard 2 -->
-  <div class="dashboard-container">
-    <h2>💧 QC Bahan Kimia (Kadar Klor)</h2>
-    <button class="refresh-btn" onclick="refreshDashboard('dashboard2')">🔄 Refresh</button>
-    <iframe id="dashboard2" src="https://lookerstudio.google.com/embed/reporting/YOUR_REPORT_ID/page/p_klor?rm=minimal"></iframe>
-  </div>
-
-  <!-- Dashboard 3 -->
-  <div class="dashboard-container">
-    <h2>🔩 QC Material</h2>
-    <button class="refresh-btn" onclick="refreshDashboard('dashboard3')">🔄 Refresh</button>
-    <iframe id="dashboard3" src="https://lookerstudio.google.com/embed/reporting/YOUR_REPORT_ID/page/p_material?rm=minimal"></iframe>
+  <div class="nav">
+    <a href="kadar-klor.html">💧 Kadar Klor</a>
+    <a href="material.html">🔩 Material</a>
   </div>
 
   <script>
-    function refreshDashboard(id) {
-      const iframe = document.getElementById(id);
-      const src = iframe.src.split('?')[0];
-      iframe.src = `${src}?rm=minimal&refresh=${Math.floor(Math.random() * 100000)}`;
+    function refreshDashboard() {
+      const iframe = document.getElementById("dashboard");
+      const src = iframe.src.split("?")[0];
+      iframe.src = `${src}?rm=minimal&refresh=${Date.now()}`;
     }
   </script>
-
 </body>
 </html>
