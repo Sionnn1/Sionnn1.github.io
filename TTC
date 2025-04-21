@@ -62,7 +62,7 @@
 
   <h1>Dashboard QC TTC</h1>
   <button class="refresh-btn" onclick="refreshDashboard()">🔄 Refresh</button>
-  <iframe id="dashboard" src="https://lookerstudio.google.com/embed/reporting/88ba43dc-3def-4add-9b12-b175e48de039/page/4F6GF?rm=minimal"></iframe>
+  <iframe id="dashboard" src="https://lookerstudio.google.com/embed/reporting/YOUR-REPORT-ID-HERE/page/XYZ123?rm=minimal"></iframe>
 
  <div class="nav">
     <a href="MT.html">MT</a>
